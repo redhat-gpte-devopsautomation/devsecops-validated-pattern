@@ -1,0 +1,5 @@
+resources:
+- application-app-inventory-unsigned.yaml
+- application-app-inventory.yaml
+- namespace-coolstore.yaml
+- role-binding-argocd-coolstore-edit.yaml
