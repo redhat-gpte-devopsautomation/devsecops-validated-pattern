@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: inventory-unsigned-app
+  name: globex
   namespace: openshift-gitops
 spec:
   destination:
@@ -14,7 +14,7 @@ spec:
         - '.imagePullSecrets[] | select(.name|test(".-dockercfg-."))'
       kind: ServiceAccount
   source:
-    path: gitops/inventory/overlays/fail
+    path: gitops/globex/overlays/dev
     repoURL: >-
       {{ _internal_gitea_repo_devsecops_url }}
     targetRevision: HEAD
