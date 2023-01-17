@@ -55,22 +55,6 @@ spec:
     workspaces:
     - name: output
       workspace: shared-data
-  - name: compile-test
-    params:
-    - name: GOALS
-      value:
-      - clean
-      - compile
-    runAfter:
-    - fetch-source
-    taskRef:
-      kind: ClusterTask
-      name: maven
-    workspaces:
-    - name: maven-settings
-      workspace: maven-settings
-    - name: source
-      workspace: shared-data
   - name: scan-source
     params:
     - name: sonarqubeHostUrl
@@ -80,7 +64,7 @@ spec:
     - name: sonarqubeProjectSecret
       value: $(params.SONARQUBE_PROJECT_SECRET)
     runAfter:
-    - compile-test
+    - fetch-source
     taskRef:
       kind: Task
       name: scan-code
