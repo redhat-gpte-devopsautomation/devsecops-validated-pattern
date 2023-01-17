@@ -40,7 +40,7 @@ spec:
 
       cd $TMPDIR
       git clone $(params.repository)
-      cd multicluster-devsecops-pattern
+      cd devsecops-validated-pattern
       git checkout $(params.target-branch)
 
       # Set to the short commit value passed as parameter.
