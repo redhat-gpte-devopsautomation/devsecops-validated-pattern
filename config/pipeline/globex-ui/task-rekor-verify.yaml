@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: rekor-verify
+spec:
+  params:
+  - default: "12345"
+    name: tlogIndex
+    type: string
+  steps:
+  - image: quay.io/redhat-gpte/rekor-cli
+    name: verify-tlog-signature
+    script: |
+      set -x
+
+      rekor-cli verify --log-index $(params.tlogIndex)
