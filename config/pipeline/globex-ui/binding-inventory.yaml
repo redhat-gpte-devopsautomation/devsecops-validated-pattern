@@ -1,0 +1,23 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  creationTimestamp: null
+  name: app-globex-ui-binding
+spec:
+  params:
+  - name: imageRepo
+    value: "{{ _internal_image_repo }}"
+  - name: manifestRepo
+    value: "{{ _internal_manifest_repo }}"
+  - name: manifestFile
+    value: "{{ _internal_manifest_file_dev }}"
+  - name: manifestFileProd
+    value: "{{ _internal_manifest_file_prod }}"
+  - name: manifestRepoName
+    value: "{{ _internal_manifest_repo_name }}"
+  - name: tlsVerify
+    value: "true"
+  - name: gitRepoHost
+    value: "{{ _internal_git_repo_host }}"
+  - name: sonarqubeHostUrl
+    value: "{{ _internal_sonarqube_host_url }}"
