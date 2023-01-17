@@ -1,0 +1,6 @@
+resources:
+- kafka-topic-globex-tracking.yaml
+- kafka-cluster.yaml
+- operator-group-kafka.yaml
+- kafka-topic-globex-orders.yaml
+- subscription-kafka.yaml
