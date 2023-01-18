@@ -1,4 +1,2 @@
 resources:
 - application-kafka.yaml
-- namespace-kafka.yaml
-- role-binding-argocd-kafka-edit.yaml

@@ -1,8 +1,7 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: argocd-coolstore-edit
-  namespace: "{{ _internal_app_namespace }}"
+  name: argocd-edit
 subjects:
   - kind: ServiceAccount
     name: openshift-gitops-argocd-application-controller
