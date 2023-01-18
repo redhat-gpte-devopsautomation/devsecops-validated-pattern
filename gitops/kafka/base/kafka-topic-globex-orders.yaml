@@ -5,6 +5,8 @@ metadata:
     strimzi.io/cluster: kafka-cluster
   name: globex.orders
   namespace: "{{ _internal_kafka_namespace }}"
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   config:
     retention.ms: 604800000

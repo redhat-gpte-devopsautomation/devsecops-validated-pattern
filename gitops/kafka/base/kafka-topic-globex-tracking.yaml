@@ -5,6 +5,8 @@ metadata:
     strimzi.io/cluster: kafka-cluster
   name: globex.tracking
   namespace: "{{ _internal_kafka_namespace }}"
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   config:
     retention.ms: 604800000

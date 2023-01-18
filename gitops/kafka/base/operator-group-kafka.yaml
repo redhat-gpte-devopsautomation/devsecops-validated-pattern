@@ -3,6 +3,8 @@ kind: OperatorGroup
 metadata:
   name: kafka-og
   namespace: "{{ _internal_kafka_namespace }}"
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   targetNamespaces:
   - "{{ _internal_kafka_namespace }}"
