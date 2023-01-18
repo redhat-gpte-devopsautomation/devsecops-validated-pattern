@@ -3,3 +3,12 @@ bases:
 
 patchesStrategicMerge:
 - delete-application-globex-unsigned.yaml
+
+patches:
+- target:
+    kind: Application
+    name: globex
+  patch: |-
+    - op: replace
+      path: /spec/source/path
+      value: gitops/globex/overlays/prod
