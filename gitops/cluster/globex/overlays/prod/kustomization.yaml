@@ -1,2 +1,5 @@
 bases:
 - ../../base
+
+patchesStrategicMerge:
+- delete-application-globex-unsigned.yaml
