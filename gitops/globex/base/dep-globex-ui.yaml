@@ -50,7 +50,7 @@ spec:
           value: http://recommendation-engine:8080/score/product
         - name: API_TRACK_PLACEORDER
           value: http://order-placement:8080/placeorder
-        image: quay.io/globex-recommendation/globex-recommendation-ui:app-mod-workshop
+        image: quay.io/redhat-gpte/globex-recommendation-ui:app-mod-workshop
         imagePullPolicy: IfNotPresent
         name: globex-ui
         ports:
