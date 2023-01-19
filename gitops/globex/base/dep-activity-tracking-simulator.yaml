@@ -31,7 +31,7 @@ spec:
       - env:
         - name: ACTIVITY_TRACKING_SERVICE_HOST
           value: activity-tracking:8080
-        image: quay.io/globex-recommendation/activity-tracking-simulator:app-mod-workshop
+        image: quay.io/redhat-gpte/globex-activity-tracking-simulator:app-mod-workshop
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3

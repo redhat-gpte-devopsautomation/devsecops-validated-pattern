@@ -63,7 +63,7 @@ spec:
               name: catalog-database
         - name: INVENTORY_URL
           value: inventory:8080
-        image: quay.io/globex-recommendation/catalog:app-mod-workshop
+        image: quay.io/redhat-gpte/globex-catalog:app-mod-workshop
         imagePullPolicy: IfNotPresent
         name: catalog
         ports:

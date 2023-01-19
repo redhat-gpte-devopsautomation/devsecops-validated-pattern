@@ -46,7 +46,7 @@ spec:
             secretKeyRef:
               key: database-name
               name: catalog-database
-        image: quay.io/globex-recommendation/catalog-database:app-mod-workshop
+        image: quay.io/redhat-gpte/globex-catalog-database:app-mod-workshop
         imagePullPolicy: IfNotPresent
         name: catalog-database
         ports:

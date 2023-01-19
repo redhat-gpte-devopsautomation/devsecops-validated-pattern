@@ -46,7 +46,7 @@ spec:
             secretKeyRef:
               key: database-name
               name: inventory-database
-        image: quay.io/globex-recommendation/inventory-database:app-mod-workshop
+        image: quay.io/redhat-gpte/globex-inventory-database:app-mod-workshop
         imagePullPolicy: IfNotPresent
         name: inventory-database
         ports:

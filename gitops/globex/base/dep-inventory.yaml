@@ -50,7 +50,7 @@ spec:
               name: inventory-database
         - name: QUARKUS_DATASOURCE_JDBC_URL
           value: jdbc:postgresql://inventory-database:5432/${POSTGRESQL_DATABASE}
-        image: quay.io/globex-recommendation/inventory:app-mod-workshop
+        image: quay.io/redhat-gpte/globex-inventory:app-mod-workshop
         imagePullPolicy: IfNotPresent
         name: inventory
         ports:
