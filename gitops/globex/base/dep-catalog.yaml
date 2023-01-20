@@ -4,7 +4,6 @@ metadata:
   annotations:
     app.openshift.io/connects-to: |
       [{"apiVersion":"apps/v1","kind":"Deployment","name":"inventory"},{"apiVersion":"apps/v1","kind":"Deployment","name":"catalog-database"}]
-    deployment.kubernetes.io/revision: "1"
   labels:
     app.kubernetes.io/instance: globex-app
     app.kubernetes.io/name: catalog

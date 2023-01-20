@@ -7,7 +7,6 @@ metadata:
       {"apiVersion":"apps/v1","kind":"Deployment","name":"recommendation-engine"},
       {"apiVersion":"apps/v1","kind":"Deployment","name":"activity-tracking"},
       {"apiVersion":"apps/v1","kind":"Deployment","name":"order-placement"}]
-    deployment.kubernetes.io/revision: "1"
   labels:
     app.kubernetes.io/instance: globex-app
     app.kubernetes.io/name: globex-ui
