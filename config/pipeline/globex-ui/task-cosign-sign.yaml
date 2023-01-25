@@ -7,8 +7,8 @@ spec:
   - default: docker.io/sonarsource/sonar-scanner-cli:latest
     name: image
     type: string
-  - default: cosign-secret
-    name: cosignSecret
+  - default: secret/data/cosign
+    name: vaultSecretPath
     type: string
   - default: redhat-registry-secret
     name: registrySecret
@@ -23,10 +23,10 @@ spec:
       set -x
 
       oc exec -it vault-0 -n vault -- vault kv get -field=cosign.key
-      secret/data/cosign > /workspace/cosign.key
+      $(params.vaultSecretPath) > /workspace/cosign.key
 
       oc exec -it vault-0 -n vault -- vault kv get -field=cosign.password
-      secret/data/cosign > /workspace/cosign.password
+      $(params.vaultSecretPath) > /workspace/cosign.password
   - env:
       - name: REGISTRY_SECRET
         valueFrom:

@@ -94,6 +94,8 @@ spec:
     params:
     - name: image
       value: $(params.IMAGE_REPO):$(params.IMAGE_TAG)
+    - name: vaultSecretPath
+      value: secret/data/cosign
     - name: registrySecret
       value: image-registry-secret
     runAfter:
