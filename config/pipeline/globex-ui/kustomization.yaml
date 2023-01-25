@@ -10,6 +10,7 @@ resources:
 - task-open-pull-request.yaml
 - task-update-manifest.yaml
 - bindings-github-push.yaml
+- task-acs-deployment-check.yaml
 - task-acs-image-check.yaml
 - task-pr-manifest.yaml
 - template-globex-ui.yaml
