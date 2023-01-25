@@ -152,6 +152,23 @@ spec:
     taskRef:
       kind: Task
       name: update-manifest
+  - name: acs-deploy-check
+    params:
+      - name: rox_central_endpoint
+        value: stackrox-endpoint
+      - name: rox_api_token
+        value: stackrox-secret
+      - name: gitRepositoryUrl
+        value: $(params.MANIFEST_REPO)
+      - name: gitRepositoryRevision
+        value: main
+      - name: insecure-skip-tls-verify
+        value: 'true'
+    runAfter:
+      - update-dev-manifest
+    taskRef:
+      kind: Task
+      name: acs-deploy-check
   - name: verify-tlog-signature
     params:
     - name: tlogIndex
@@ -174,6 +191,7 @@ spec:
     - name: target-branch
       value: feature-for-$(params.COMMIT_SHA)
     runAfter:
+    - acs-deploy-check
     - verify-tlog-signature
     taskRef:
       kind: Task
