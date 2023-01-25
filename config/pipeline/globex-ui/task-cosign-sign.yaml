@@ -17,33 +17,35 @@ spec:
   - description: The signature of the image
     name: tlogIndex
   steps:
-  - env:
-    - name: COSIGN_KEY
-      valueFrom:
-        secretKeyRef:
-          key: cosign.key
-          name: $(params.cosignSecret)
-    - name: COSIGN_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          key: cosign.password
-          name: $(params.cosignSecret)
-    - name: REGISTRY_SECRET
-      valueFrom:
-        secretKeyRef:
-          key: .dockerconfigjson
-          name: $(params.registrySecret)
-    image: quay.io/redhat-gpte/cosign
-    name: sign-image
-    script: |
+  - image: openshift/origin-cli
+    name: get-vault-secret
+    script: >
       set -x
 
-      cd /tmp
+      oc exec -it vault-0 -n vault -- vault kv get -field=cosign.key
+      secret/data/cosign > /workspace/cosign.key
 
-      echo "${COSIGN_KEY}" > ./cosign.key
+      oc exec -it vault-0 -n vault -- vault kv get -field=cosign.password
+      secret/data/cosign > /workspace/cosign.password
+  - env:
+      - name: REGISTRY_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: .dockerconfigjson
+            name: $(params.registrySecret)
+    image: quay.io/redhat-gpte/cosign
+    name: sign-image
+    resources: {}
+    script: >
+      set -x
+
       echo "${REGISTRY_SECRET}" > /home/cosign/.docker/config.json
-      COSIGN_EXPERIMENTAL=1 COSIGN_PASSWORD=$COSIGN_PASSWORD cosign sign --key cosign.key --yes $(params.image)
-      cosign download signature $(params.image) --output-file /workspace/signature.sig
+
+      COSIGN_EXPERIMENTAL=1 COSIGN_PASSWORD=$(cat /workspace/cosign.password)
+      cosign sign --key /workspace/cosign.key --yes $(params.image)
+
+      cosign download signature $(params.image) --output-file
+      /workspace/signature.sig
   - image: stedolan/jq
     name: extract-tlog
     script: |
