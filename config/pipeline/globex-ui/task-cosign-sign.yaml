@@ -2,6 +2,15 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: cosign-sign
+  annotations:
+    vault.hashicorp.com/agent-inject: 'true'
+    vault.hashicorp.com/agent-inject-secret-cosign-conf: secret/cosign/config
+    vault.hashicorp.com/agent-inject-template-cosign-conf: |
+      {{ with secret "secret/cosign/config" -}}
+        export COSIGN_KEY="{{ .Data.data.cosign_key }}"
+        export COSIGN_PASSWORD="{{ .Data.data.cosign_password }}"
+      {{- end }}
+    vault.hashicorp.com/role: cosign
 spec:
   params:
   - default: docker.io/sonarsource/sonar-scanner-cli:latest
@@ -22,11 +31,11 @@ spec:
     script: >
       set -x
 
-      oc exec -it vault-0 -n vault -- vault kv get -field=cosign.key
-      $(params.vaultSecretPath) > /workspace/cosign.key
+      source /vault/secrets/cosign-conf
 
-      oc exec -it vault-0 -n vault -- vault kv get -field=cosign.password
-      $(params.vaultSecretPath) > /workspace/cosign.password
+      echo "${COSIGN_KEY}" > /workspace/cosign.key
+
+      echo "${COSIGN_PASSWORD}" > /workspace/cosign.password
   - env:
       - name: REGISTRY_SECRET
         valueFrom:
