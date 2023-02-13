@@ -1,0 +1,3 @@
+resources:
+- subscription-argocd.yaml
+- subscription-kafka.yaml
