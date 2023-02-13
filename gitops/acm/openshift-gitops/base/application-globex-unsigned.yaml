@@ -21,4 +21,5 @@ spec:
   syncPolicy:
     automated: {}
     syncOptions:
-      - RespectIgnoreDifferences=true
+    - RespectIgnoreDifferences=true
+    - CreateNamespace=true
