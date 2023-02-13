@@ -1,0 +1,3 @@
+resources:
+- operator-group-kafka.yaml
+- subscription-kafka.yaml
