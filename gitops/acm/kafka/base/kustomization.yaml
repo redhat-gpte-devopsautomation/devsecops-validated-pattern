@@ -1,0 +1,2 @@
+resources:
+- role-binding-argocd-edit.yaml
