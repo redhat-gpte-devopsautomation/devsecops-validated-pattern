@@ -2,9 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: acs-deploy-check
-  namespace: ci
-  resourceVersion: '4911278'
-  uid: 6dcc3882-3dfe-488a-8db9-7ac3f09e5567
 spec:
   description: >-
     Policy check a deployment with StackRox/RHACS This tasks allows you to check

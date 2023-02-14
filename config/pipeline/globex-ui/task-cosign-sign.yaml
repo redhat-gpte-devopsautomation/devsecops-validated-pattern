@@ -52,13 +52,5 @@ spec:
 
       COSIGN_EXPERIMENTAL=1 COSIGN_PASSWORD=$(cat /workspace/cosign.password)
       cosign sign --key /workspace/cosign.key --yes $(params.image)
-
-      cosign download signature $(params.image) --output-file
-      /workspace/signature.sig
-  - image: stedolan/jq
-    name: extract-tlog
-    script: |
-      set -x
-      jq '.Bundle.Payload.logIndex' /workspace/signature.sig > $(results.tlogIndex.path)
   workspaces:
   - name: signature

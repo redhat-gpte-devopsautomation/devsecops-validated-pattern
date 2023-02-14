@@ -171,8 +171,12 @@ spec:
       name: acs-deploy-check
   - name: verify-tlog-signature
     params:
-    - name: tlogIndex
-      value: $(tasks.sign-image.results.tlogIndex)
+      - name: registrySecret
+        value: image-registry-secret
+      - name: cosignSecret
+        value: cosign-secret
+      - name: image
+        value: $(params.IMAGE_REPO):$(params.IMAGE_TAG)
     runAfter:
     - update-dev-manifest
     taskRef:
