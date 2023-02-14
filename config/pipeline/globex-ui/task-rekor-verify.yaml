@@ -27,7 +27,7 @@ spec:
               key: cosign.pub
               name: $(params.cosignSecret)
       image: quay.io/redhat-gpte/cosign
-      name: sign-image
+      name: cosign-verify-image
       resources: {}
       script: >
         echo "${REGISTRY_SECRET}" > /home/cosign/.docker/config.json
