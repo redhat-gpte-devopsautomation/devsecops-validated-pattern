@@ -11,4 +11,4 @@ patches:
   patch: |-
     - op: replace
       path: /spec/source/path
-      value: gitops/globex/overlays/prod
+      value: gitops/application/globex/overlays/prod
