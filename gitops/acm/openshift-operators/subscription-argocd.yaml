@@ -6,5 +6,5 @@ spec:
   channel: stable
   installPlanApproval: Automatic
   name: openshift-gitops-operator
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
+  source: devsecops-catalog-source
+  sourceNamespace: openshift-operators
