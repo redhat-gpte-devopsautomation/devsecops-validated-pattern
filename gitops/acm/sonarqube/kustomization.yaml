@@ -1,0 +1,10 @@
+resources:
+- secret-db-sonarqube.yaml
+- secret-ldap-sonarqube.yaml
+- pvc-db-sonarqube.yaml
+- pvc-sonarqube.yaml
+- deployment-db-sonarqube.yaml
+- deployment-sonarqube.yaml
+- service-db-sonarqube.yaml
+- service-sonarqube.yaml
+- route-sonarqube.yaml
