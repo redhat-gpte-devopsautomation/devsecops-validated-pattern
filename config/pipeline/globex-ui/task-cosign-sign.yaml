@@ -11,6 +11,7 @@ metadata:
         export COSIGN_PASSWORD="{{ .Data.data.cosign_password }}"
       {{- end }}
     vault.hashicorp.com/role: cosign
+    vault.hashicorp.com/agent-image: registry.connect.redhat.com/hashicorp/vault:1.12.3-ubi
 spec:
   params:
   - default: docker.io/sonarsource/sonar-scanner-cli:latest
