@@ -1,0 +1,4 @@
+resources:
+- namespace-quay.yaml
+- secret-config-bundle.yaml
+- quay-registry.yaml
