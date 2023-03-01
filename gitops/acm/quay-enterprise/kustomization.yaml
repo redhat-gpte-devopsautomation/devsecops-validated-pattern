@@ -1,0 +1,3 @@
+resources:
+- secret-config-bundle.yaml
+- quay-registry.yaml

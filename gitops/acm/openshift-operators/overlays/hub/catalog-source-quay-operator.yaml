@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: redhat-operators-snapshot-quay-operator
+  namespace: openshift-operators
+spec:
+  displayName: redhat-operators-snapshot-quay-operator
+  image: 'quay.io/gpte-devops-automation/olm_snapshot_redhat_catalog:v4.12_2023_02_20'
+  publisher: Red Hat AgnosticD
+  sourceType: grpc
