@@ -1,4 +1,0 @@
-resources:
-- application-globex-unsigned.yaml
-- application-globex.yaml
-- application-kafka.yaml
