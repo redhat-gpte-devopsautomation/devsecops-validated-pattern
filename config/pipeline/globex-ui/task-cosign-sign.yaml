@@ -6,10 +6,10 @@ metadata:
     vault.hashicorp.com/agent-inject: 'true'
     vault.hashicorp.com/agent-inject-secret-cosign-conf: secret/cosign/config
     vault.hashicorp.com/agent-inject-template-cosign-conf: |
-      {{ with secret "secret/cosign/config" -}}
+      {{`{{ with secret "secret/cosign/config" -}}
         export COSIGN_KEY="{{ .Data.data.cosign_key }}"
         export COSIGN_PASSWORD="{{ .Data.data.cosign_password }}"
-      {{- end }}
+      {{- end }}`}}
     vault.hashicorp.com/role: cosign
     vault.hashicorp.com/agent-image: registry.connect.redhat.com/hashicorp/vault:1.12.3-ubi
 spec:
