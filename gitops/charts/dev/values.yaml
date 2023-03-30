@@ -5,7 +5,7 @@ development:
   globex:
     namespace: globex
     contextDir: ""
-  globex-unsigned:
+  globexUnsigned:
     namespace: globex
     contextDir: ""
   kafka:

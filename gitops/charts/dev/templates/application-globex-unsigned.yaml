@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: "{{ $.Values.development.globex-unsigned.namespace }}"
+    namespace: "{{ $.Values.development.globexUnsigned.namespace }}"
     server: 'https://kubernetes.default.svc'
   project: default
   ignoreDifferences:
@@ -14,7 +14,7 @@ spec:
         - '.imagePullSecrets[] | select(.name|test(".-dockercfg-."))'
       kind: ServiceAccount
   source:
-    path: "{{ $.Values.development.globex-unsigned.contextDir }}"
+    path: "{{ $.Values.development.globexUnsigned.contextDir }}"
     repoURL: "{{ $.Values.development.repoUrl }}"
     targetRevision: HEAD
   syncPolicy:
