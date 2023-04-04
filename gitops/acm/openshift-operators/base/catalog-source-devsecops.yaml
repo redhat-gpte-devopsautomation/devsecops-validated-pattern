@@ -1,9 +1,0 @@
-apiVersion: operators.coreos.com/v1alpha1
-kind: CatalogSource
-metadata:
-  name: devsecops-catalog-source
-spec:
-  sourceType: grpc
-  image: quay.io/gpte-devops-automation/olm_snapshot_redhat_catalog:v4.10_2023_01_30
-  displayName: "DevSecOps Catalog Source"
-  publisher: "Red Hat AgnosticD"

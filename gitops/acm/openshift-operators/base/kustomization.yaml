@@ -1,4 +1,0 @@
-resources:
-- catalog-source-devsecops.yaml
-- subscription-argocd.yaml
-- subscription-kafka.yaml

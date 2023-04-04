@@ -1,5 +1,0 @@
-resources:
-- argocd-instance.yaml
-- application-globex-unsigned.yaml
-- application-globex.yaml
-- application-kafka.yaml
